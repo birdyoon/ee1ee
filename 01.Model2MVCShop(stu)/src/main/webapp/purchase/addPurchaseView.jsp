@@ -50,7 +50,7 @@ function fncAddPurchase() {
 	</tr>
 </table>
 
-<input type="hidden" name="prodNo" value="10000" />
+<input type="hidden" name="prodNo" value="<%=vo.getProdNo() %>" />
 
 <table width="600" border="0" cellspacing="0" cellpadding="0"	align="center" style="margin-top: 13px;">
 	<tr>
@@ -122,7 +122,7 @@ function fncAddPurchase() {
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${user.userId }</td>
-		<input type="hidden" name="buyerId" value="admin" />
+		<input type="hidden" name="buyerId" value="${user.userId }" />
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -146,7 +146,7 @@ function fncAddPurchase() {
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input type="text" name="receiverName" class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="20" value=${User.userName} />
+						style="width: 100px; height: 19px" maxLength="20" value="${User.userName}"/>
 		</td>
 	</tr>
 	<tr>
@@ -157,7 +157,7 @@ function fncAddPurchase() {
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverPhone" class="ct_input_g" 
-							style="width: 100px; height: 19px" maxLength="20" value=${User.phone} />
+							style="width: 100px; height: 19px" maxLength="20" value="${User.phone}"/>
 		</td>
 	</tr>
 	<tr>
@@ -168,7 +168,7 @@ function fncAddPurchase() {
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="divyAddr" class="ct_input_g" 
-							style="width: 100px; height: 19px" maxLength="20" value=${User.addr}/>
+							style="width: 100px; height: 19px" maxLength="20" value="${User.addr}"/>
 		</td>
 	</tr>
 	<tr>

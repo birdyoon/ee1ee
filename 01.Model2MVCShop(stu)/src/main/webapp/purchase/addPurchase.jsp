@@ -19,7 +19,7 @@
 
 <body>
 
-<form name="updatePurchase" action="/updatePurchaseView.do?tranNo=0" method="post">
+<!--  <form name="updatePurchase" action="/updatePurchaseView.do?tranNo=0" method="post"> -->
 
 다음과 같이 구매가 되었습니다.
 
@@ -36,17 +36,13 @@
 	</tr>
 	<tr>
 		<td>구매방법</td>
-		<td><select 	name="paymentOption"	class="ct_input_g" 
-							style="width: 100px; height: 19px" maxLength="20">
-				<option value="1" selected="selected">현금구매</option>
-				<option value="2">신용구매</option>
-			</select>				
+		<td>현금구매	
 		</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>구매자이름</td>
-		<td><%=po.getReceiverName() %>(</td>
+		<td><%=po.getReceiverName() %></td>
 		<td></td>
 	</tr>
 	<tr>
@@ -70,7 +66,7 @@
 		<td></td>
 	</tr>
 </table>
-</form>
+<!-- </form>  -->
 
 </body>
 </html>

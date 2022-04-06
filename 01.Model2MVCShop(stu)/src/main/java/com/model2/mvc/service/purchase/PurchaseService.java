@@ -9,15 +9,15 @@ public interface PurchaseService {
 
 	public void addPurchase(PurchaseVO purchaseVO) throws Exception;
 	
-	public PurchaseVO getPurchase(int purchaseVO) throws Exception;
+//'	public PurchaseVO getPurchase(int purchaseVO) throws Exception;
 	
-	public HashMap<String, Object> getPurchaseList(String SearchVO) throws Exception;
+	public HashMap<String, Object> getPurchaseList(SearchVO searchVO, String userId) throws Exception;
 	
-	public HashMap<String, Object> getSaleList(SearchVO searchVO) throws Exception;
+//	public HashMap<String, Object> getSaleList(SearchVO searchVO) throws Exception;
 	
-	public PurchaseVO updatePurchase(PurchaseVO purchaseVO) throws Exception;
+//	public PurchaseVO updatePurchase(PurchaseVO purchaseVO) throws Exception;
 	
-	public void updateTranCode(PurchaseVO purchaseVO) throws Exception;
+//	public void updateTranCode(PurchaseVO purchaseVO) throws Exception;
 	
 }
 

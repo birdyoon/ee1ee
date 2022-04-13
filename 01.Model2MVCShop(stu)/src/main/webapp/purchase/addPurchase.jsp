@@ -36,8 +36,13 @@
 	</tr>
 	<tr>
 		<td>구매방법</td>
-		<td>현금구매	
-		</td>
+		<td><% if(po.getPaymentOption().equals("1")) { %>	
+						현금구매
+			  <% }else if(po.getPaymentOption().equals("2")) { %>	
+						신용구매
+			  <% } %>		
+		</td>			
+		
 		<td></td>
 	</tr>
 	<tr>

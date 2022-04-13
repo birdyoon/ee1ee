@@ -20,7 +20,7 @@ public class UserDAO {
 		
 		Connection con = DBUtil.getConnection();
 
-		String sql = "insert into USERS values (?,?,?,'user',?,?,?,?,sysdate)";
+		String sql = "INSERT INTO users VALUES (?,?,?,'user',?,?,?,?,sysdate)";
 		
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, userVO.getUserId());
@@ -39,7 +39,7 @@ public class UserDAO {
 		
 		Connection con = DBUtil.getConnection();
 
-		String sql = "select * from USERS where USER_ID=?";
+		String sql = "SELECT * FROM users WHERE user_id=?";
 		
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, userId);
@@ -69,17 +69,17 @@ public class UserDAO {
 		
 		Connection con = DBUtil.getConnection();
 		
-		String sql = "select * from USERS ";
+		String sql = "SELECT * FROM users ";
 		if (searchVO.getSearchCondition() != null) {
 			if (searchVO.getSearchCondition().equals("0")) {
-				sql += " where USER_ID='" + searchVO.getSearchKeyword()
+				sql += " WHERE user_id='" + searchVO.getSearchKeyword()
 						+ "'";
 			} else if (searchVO.getSearchCondition().equals("1")) {
-				sql += " where USER_NAME='" + searchVO.getSearchKeyword()
+				sql += " WHERE user_name='" + searchVO.getSearchKeyword()
 						+ "'";
 			}
 		}
-		sql += " order by USER_ID";
+		sql += " ORDER BY user_id";
 
 		PreparedStatement stmt = 
 			con.prepareStatement(	sql,
@@ -130,7 +130,7 @@ public class UserDAO {
 		
 		Connection con = DBUtil.getConnection();
 
-		String sql = "update USERS set USER_NAME=?,CELL_PHONE=?,ADDR=?,EMAIL=? where USER_ID=?";
+		String sql = "UPDATE users SET user_name=?,cell_phone=?,addr=?,email=? WHERE user_id=?";
 		
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, userVO.getUserName());

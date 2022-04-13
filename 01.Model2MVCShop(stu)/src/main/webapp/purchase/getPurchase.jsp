@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 
+<%@ page import="com.model2.mvc.service.purchase.vo.*" %>
 
+<%
+	PurchaseVO po = (PurchaseVO)request.getAttribute("po");
+
+
+%>
 <html>
 <head>
 <title>구매상세조회</title>
@@ -43,8 +49,8 @@
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="105">
-					10012</td>
+					<td width="105"><%=po.getTranNo() %></td>
+					
 					<td></td>
 				</tr>
 			</table>
@@ -58,7 +64,7 @@
 			구매자아이디 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">user17</td>
+		<td class="ct_write01"><%=po.getBuyer().getUserId() %></td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -68,7 +74,11 @@
 		<td width="104" class="ct_write">구매방법</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			현금구매
+					<% if(po.getPaymentOption().equals("1")) { %>	
+						현금구매
+			  <% }else if(po.getPaymentOption().equals("2")) { %>	
+						신용구매
+			  <% } %>
 		</td>
 	</tr>
 	<tr>
@@ -77,7 +87,7 @@
 	<tr>
 		<td width="104" class="ct_write">구매자이름</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">SCOTT</td>
+		<td class="ct_write01"><%=po.getReceiverName() %></td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -85,7 +95,7 @@
 	<tr>
 		<td width="104" class="ct_write">구매자연락처</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">null</td>
+		<td class="ct_write01"><%=po.getReceiverPhone() %></td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -93,7 +103,7 @@
 	<tr>
 		<td width="104" class="ct_write">구매자주소</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">null</td>
+		<td class="ct_write01"><%=po.getDivyAddr() %></td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -101,7 +111,7 @@
 	<tr>
 		<td width="104" class="ct_write">구매요청사항</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">null</td>
+		<td class="ct_write01"><%=po.getDivyRequest() %></td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -109,7 +119,7 @@
 	<tr>
 		<td width="104" class="ct_write">배송희망일</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">null</td>
+		<td class="ct_write01"><%=po.getDivyDate() %></td>
 	</tr>
 
 	<tr>
@@ -119,7 +129,7 @@
 	<tr>
 		<td width="104" class="ct_write">주문일</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">2022-04-02</td>
+		<td class="ct_write01"><%=po.getOrderDate() %></td>
 	</tr>
 
 	<tr>
@@ -138,7 +148,7 @@
 						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 					</td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01"	style="padding-top: 3px;">
-						<a href="/updatePurchaseView.do?tranNo=10154">수정</a>
+						<a href="/updatePurchaseView.do?tranNo=<%=po.getTranNo()%>">수정</a>
 					</td>
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>

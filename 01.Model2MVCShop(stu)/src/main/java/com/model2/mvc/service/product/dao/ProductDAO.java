@@ -39,7 +39,7 @@ public class ProductDAO {
 		
 		Connection con = DBUtil.getConnection();
 
-		String sql = "select * from Product where Prod_No=?";
+		String sql = "SELECT * FROM Product WHERE prod_no=?";
 		
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setInt(1, prodNo);
@@ -49,13 +49,13 @@ public class ProductDAO {
 		ProductVO productVO = null;
 		while (rs.next()) {
 			productVO = new ProductVO();
-			productVO.setManuDate(rs.getString("MANUFACTURE_DAY"));
-			productVO.setPrice(rs.getInt("PRICE"));
-			productVO.setProdDetail(rs.getString("PROD_DETAIL"));
-			productVO.setProdName(rs.getString("PROD_NAME"));
-			productVO.setProdNo(rs.getInt("PROD_NO"));
-			productVO.setFileName(rs.getString("IMAGE_FILE"));
-			productVO.setRegDate(rs.getDate("REG_DATE"));
+			productVO.setManuDate(rs.getString("manufacture_day"));
+			productVO.setPrice(rs.getInt("price"));
+			productVO.setProdDetail(rs.getString("prod_detail"));
+			productVO.setProdName(rs.getString("prod_name"));
+			productVO.setProdNo(rs.getInt("prod_no"));
+			productVO.setFileName(rs.getString("image_file"));
+			productVO.setRegDate(rs.getDate("reg_date"));
 		}
 		
 		con.close();

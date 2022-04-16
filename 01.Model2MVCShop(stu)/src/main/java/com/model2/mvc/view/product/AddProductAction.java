@@ -30,7 +30,7 @@ public class AddProductAction extends Action {
 		service.addProduct(productVO);
 		
 		request.setAttribute("vo", productVO);
-		
+		System.out.println("sdfds");
 		return "forward:/product/addProduct.jsp";
 	}
 }

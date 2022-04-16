@@ -28,11 +28,11 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public HashMap<String,Object> getPurchaseList(SearchVO searchVO, String userId) throws Exception{
 		return purchaseDAO.getPurchaseList(searchVO, userId);
 	}
-//	
-//	public PurchaseVO updatePurchase(PurchaseVO purchaseVO) throws Exception{
-//		return purchaseDAO.updatePurchase(purchaseVO);
-//	}
-//	
+	
+	public void updatePurchase(PurchaseVO purchaseVO) throws Exception{
+		purchaseDAO.updatePurchase(purchaseVO);
+	}
+	
 //	public void updateTranCode(PurchaseVO purchaseVO) throws Exception{
 //		return purchaseDAO.updateTranCode(purchaseVO);
 //	}

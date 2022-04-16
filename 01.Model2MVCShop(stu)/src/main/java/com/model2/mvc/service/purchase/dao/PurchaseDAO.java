@@ -146,13 +146,14 @@ public class PurchaseDAO {
 		
 		Connection con = DBUtil.getConnection();
 		
-		String sql = "UPDATE transaction set payment_option=?, receiver_name=?, receiver_phone=?,"
+		String sql = "UPDATE transaction set buyer_id=?, payment_option=?, receiver_name=?, receiver_phone=?,"
 				+ " dlvy_addr=?, dlvy_request=?, dlvy_date=? WHERE tran_no=? ";
 				
 				
 		PreparedStatement pstmt = con.prepareStatement(sql);
 	//	purchaseVO = new PurchaseVO();
-	//	pstmt.setUserVO(1, PurchaseVO.getBuyer().getUserId() );
+	//	UserVO userVO = new UserVO();
+		pstmt.setString(1, purchaseVO.getBuyer().getUserId() );
 		pstmt.setString(1, purchaseVO.getPaymentOption());
 		pstmt.setString(2, purchaseVO.getReceiverName());
 		pstmt.setString(3, purchaseVO.getReceiverPhone());

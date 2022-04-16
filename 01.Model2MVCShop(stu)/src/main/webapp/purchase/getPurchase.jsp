@@ -75,11 +75,15 @@
 		<td width="104" class="ct_write">구매방법</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-					<% if(po.getPaymentOption().equals("1")) { %>	
+		
+		<%= po.getPaymentOption()  %>
+			 
+		<%-- 	<% if(po.getPaymentOption().equals("1")) { %>	
 						현금구매
 			  <% }else if(po.getPaymentOption().equals("2")) { %>	
 						신용구매
-			  <% } %>
+			  <% } %>	
+		 --%>
 		</td>
 	</tr>
 	<tr>

@@ -20,28 +20,28 @@ import com.model2.mvc.service.product.vo.ProductVO;
 
 public class AddProductAction extends Action {
 
-	@Override
+	//@Override
 	public String execute(	HttpServletRequest request,
 												HttpServletResponse response) throws Exception {
-		ProductVO productVO=new ProductVO();
-		
-		productVO.setProdName(request.getParameter("prodName"));
-		productVO.setProdDetail(request.getParameter("prodDetail"));
-		productVO.setManuDate(request.getParameter("manuDate"));
-		productVO.setPrice(Integer.parseInt(request.getParameter("price").trim()));
-		productVO.setFileName(request.getParameter("fileName"));
-		System.out.println(productVO);
-		
-		
-		
-		request.setAttribute("vo", productVO);
-		System.out.println("sdfds");
+//		ProductVO productVO=new ProductVO();
+//		
+//		productVO.setProdName(request.getParameter("prodName"));
+//		productVO.setProdDetail(request.getParameter("prodDetail"));
+//		productVO.setManuDate(request.getParameter("manuDate"));
+//		productVO.setPrice(Integer.parseInt(request.getParameter("price").trim()));
+//		productVO.setFileName(request.getParameter("fileName"));
+//		System.out.println(productVO);
+//		
+//		
+//		
+//		request.setAttribute("vo", productVO);
+//		System.out.println("sdfds");
 		
 		
 		if(FileUpload.isMultipartContent(request)) {
 			
 			String temDir =
-			"C:\\workspace\\01.Model2MVCShop(ins)\\src\\main\\webapp\\images\\uploadFiles\\";
+			"C:\\workspace\\ee1ee\\01.Model2MVCShop(stu)\\src\\main\\webapp\\images\\uploadFiles\\";
 			//String temDir2 = "/uploadFiles/";
 			
 			DiskFileUpload fileUpload = new DiskFileUpload();
@@ -52,7 +52,7 @@ public class AddProductAction extends Action {
 			fileUpload.setSizeThreshold(1024 * 100); // 한번에 100k까지는 메모리에 저장
 			
 			if(request.getContentLength() < fileUpload.getSizeMax()) {
-				ProductVO productVO1 = new ProductVO();
+				ProductVO productVO = new ProductVO();
 				
 				StringTokenizer token = null;
 				
@@ -66,14 +66,14 @@ public class AddProductAction extends Action {
 						if(fileltem.getFieldName().equals("manuDate")) {
 							token = new StringTokenizer(fileltem.getString("euc-kr"), "-");
 							String manuDate = token.nextToken()+ token.nextToken()+ token.nextToken();
-							productVO1.setManuDate(manuDate);
+							productVO.setManuDate(manuDate);
 						}
 						else if(fileltem.getFieldName().equals("prodName"))
-							productVO1.setProdName(fileltem.getString("euc-kr"));
+							productVO.setProdName(fileltem.getString("euc-kr"));
 						else if(fileltem.getFieldName().equals("prodDetail"))
-							productVO1.setProdDetail(fileltem.getString("euc-kr"));
+							productVO.setProdDetail(fileltem.getString("euc-kr"));
 						else if(fileltem.getFieldName().equals("price"))
-							productVO1.setPrice(Integer.parseInt(fileltem.getString("euc-kr")));
+							productVO.setPrice(Integer.parseInt(fileltem.getString("euc-kr")));
 					} else { // 파일형식이면..
 						
 						if(fileltem.getSize() > 0) { // 파일을 저장하는 if
@@ -83,7 +83,7 @@ public class AddProductAction extends Action {
 								idx = fileltem.getName().lastIndexOf("/");
 							}
 							String fileName = fileltem.getName().substring(idx + 1);
-							productVO1.setFileName(fileName);
+							productVO.setFileName(fileName);
 							try {
 								File uploadedFile = new File(temDir, fileName);
 								fileltem.write(uploadedFile);
@@ -91,15 +91,15 @@ public class AddProductAction extends Action {
 								System.out.println(e);
 							}
 						}else {
-							productVO1.setFileName("../../images/empty.GIF");
+							productVO.setFileName("../../images/empty.GIF");
 						}
 					}//else
 				}//for
 				
 				ProductService service=new ProductServiceImpl();
-				service.addProduct(productVO1);
+				service.addProduct(productVO);
 				
-				request.setAttribute("prodvo", productVO1);
+				request.setAttribute("prodvo", productVO);
 			}else {
 				// 업로드하는 파일이 setSizeMax보다 큰 경우
 				int overSize = (request.getContentLength() / 1000000 );
@@ -111,7 +111,7 @@ public class AddProductAction extends Action {
 			System.out.println("인코딩 타입이 multipart/form-data가 아닙니다..");
 		}
 		
-	//	return "forward:/product/addProduct.jsp";
-		return "forward:/product/getProduct.jsp";
+		return "forward:/product/addProduct.jsp";
+	//	return "forward:/product/getProduct.jsp";
 	}
 }

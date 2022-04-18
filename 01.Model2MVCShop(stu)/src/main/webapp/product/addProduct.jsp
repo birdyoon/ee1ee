@@ -3,7 +3,7 @@
 <%@ page import="com.model2.mvc.service.product.vo.*" %>
 
 <%
-	ProductVO vo = (ProductVO)request.getAttribute("vo");
+	ProductVO vo = (ProductVO)request.getAttribute("prodvo");
 	System.out.println("1 :"+vo);
 
 %>
@@ -93,7 +93,7 @@
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td height="26">
-						<img src="<%=vo.getFileName() %>"/>
+						<img src="/images/uploadFiles/<%=vo.getFileName() %>" width="300" height="300" align="absmiddle"/>
 					</td>
 				</tr>
 			</table>

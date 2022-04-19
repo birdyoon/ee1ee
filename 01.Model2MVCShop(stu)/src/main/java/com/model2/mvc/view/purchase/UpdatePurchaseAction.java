@@ -29,12 +29,15 @@ public class UpdatePurchaseAction extends Action {
 		purchaseVO.setDivyAddr(request.getParameter("divyAddr"));
 		purchaseVO.setDivyRequest(request.getParameter("divyRequest"));
 		purchaseVO.setDivyDate(request.getParameter("divyDate"));
+		System.out.println(request.getParameter("divyAddr"));
 		
 		PurchaseService service=new PurchaseServiceImpl();
 		service.updatePurchase(purchaseVO);
 	
 		
 	
-		return "forward:/updatePurchase.jsp";
+	//	return "forward:/updatePurchase.jsp";
+		return "redirect:/getPurchase.do?tranNo=" +tranNo;
+	//	return "forward:/getPurchase.jsp";
 	}
 }

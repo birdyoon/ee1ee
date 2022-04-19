@@ -26,7 +26,7 @@
 <table border=1>
 	<tr>
 		<td>물품번호</td>
-		<td><%=vo.getProdNo() %></td>
+		<td><%=po.getTranNo() %></td>
 		<td></td>
 	</tr>
 	<tr>

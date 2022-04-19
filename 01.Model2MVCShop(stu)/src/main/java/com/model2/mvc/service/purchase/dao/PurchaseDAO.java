@@ -154,13 +154,13 @@ public class PurchaseDAO {
 	//	purchaseVO = new PurchaseVO();
 	//	UserVO userVO = new UserVO();
 		pstmt.setString(1, purchaseVO.getBuyer().getUserId() );
-		pstmt.setString(1, purchaseVO.getPaymentOption());
-		pstmt.setString(2, purchaseVO.getReceiverName());
-		pstmt.setString(3, purchaseVO.getReceiverPhone());
-		pstmt.setString(4, purchaseVO.getDivyAddr());
-		pstmt.setString(5, purchaseVO.getDivyRequest());
-		pstmt.setString(6, purchaseVO.getDivyDate());
-		
+		pstmt.setString(2, purchaseVO.getPaymentOption());
+		pstmt.setString(3, purchaseVO.getReceiverName());
+		pstmt.setString(4, purchaseVO.getReceiverPhone());
+		pstmt.setString(5, purchaseVO.getDivyAddr());
+		pstmt.setString(6, purchaseVO.getDivyRequest());
+		pstmt.setString(7, purchaseVO.getDivyDate());
+		pstmt.setInt(8, purchaseVO.getTranNo());
 		pstmt.executeUpdate();
 		
 		con.close();
